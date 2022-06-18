@@ -34,3 +34,8 @@ class Encoder(nn.Sequential):
                 nn.Dropout(ff_dropout_prob)
             ))
         )
+
+
+class Transformer(nn.Sequential):
+    def __init__(self, layers: int = 4, **kwargs):
+        super().__init__(*[Encoder(**kwargs) for _ in range(layers)])

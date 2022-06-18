@@ -4,7 +4,7 @@ sys.path.append('src/modules')
 
 import torch
 from patch_embedding import PatchEmbedding
-from encoder import Encoder
+from transformer import Encoder
 
 pe = PatchEmbedding(224, embedding_size=768)
 encoder = Encoder(768)
