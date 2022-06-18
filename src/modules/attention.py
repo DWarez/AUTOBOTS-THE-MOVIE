@@ -30,7 +30,8 @@ class Attention(nn.Module):
         self.softmax = nn.Softmax(-1)
         
 
-    def forward(self, x: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, mask: torch.Tensor = None) \
+                                                            -> torch.Tensor:
         """Forward step for computing Attention
         Compute Q, K, V -> Q * K -> apply mask -> softmax -> scale -> dropout
         -> A * V -> projection
