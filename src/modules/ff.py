@@ -1,4 +1,3 @@
-from statistics import LinearRegression
 import torch
 import torch.nn as nn
 
@@ -21,4 +20,5 @@ class FeedForward(nn.Sequential):
             nn.GELU(),
             nn.Dropout(dropout_prob),
             nn.Linear(expansion*embedding_size, embedding_size),
+            nn.Dropout(dropout_prob)
         )
