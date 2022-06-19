@@ -37,5 +37,5 @@ class Encoder(nn.Sequential):
 
 
 class Transformer(nn.Sequential):
-    def __init__(self, layers: int = 4, **kwargs):
-        super().__init__(*[Encoder(**kwargs) for _ in range(layers)])
+    def __init__(self, n_layers: int = 4, **kwargs):
+        super().__init__(*[Encoder(**kwargs) for _ in range(n_layers)])
