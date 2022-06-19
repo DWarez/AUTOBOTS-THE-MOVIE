@@ -13,15 +13,17 @@ class ViT(nn.Sequential):
     def __init__(self, embedding_size: int, img_size: int, n_layers: int,
                     n_classes: int, in_channels: int = 3, 
                     patch_size: int = 16, **kwargs) -> None:
-        """_summary_
+        """Vision Transformer module
 
         Args:
-            embedding_size (int): _description_
-            img_size (int): _description_
-            n_layers (int): _description_
-            n_classes (int): _description_
-            in_channels (int, optional): _description_. Defaults to 3.
-            patch_size (int, optional): _description_. Defaults to 16.
+            embedding_size (int): size of the embedding
+            img_size (int): size of the image (assuming squared images)
+            n_layers (int): number of layers
+            n_classes (int): number of classes
+            in_channels (int, optional): number of input channels
+                Defaults to 3.
+            patch_size (int, optional): size of the patches (assuming squared
+                images hence squared patches). Defaults to 16.
         """
         assert img_size % patch_size == 0, 'Image dimensions must be divisible by the patch size.'
         super().__init__(

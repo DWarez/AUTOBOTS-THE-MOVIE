@@ -16,7 +16,7 @@ class ResidualAdd(nn.Module):
         """Adds the original input to the output of the module
 
         Args:
-            x (_type_): input tensor
+            x (torch.Tensor): input tensor
 
         Returns:
             torch.Tensor: module(x) + x
