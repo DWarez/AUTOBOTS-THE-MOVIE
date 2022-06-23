@@ -1,5 +1,6 @@
 import sys
 sys.path.append('src/modules')
+import os
 
 import argparse
 
@@ -16,6 +17,7 @@ from vit import ViT
 
 BATCH_SIZE = 128
 EPOCHS = 1
+os.makedirs('./checkpoints', exist_ok=True)
 PATH = './checkpoints/cifar_net.pth'
 
 
@@ -112,7 +114,6 @@ def main():
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 
                 'horse', 'ship', 'truck')
 
-    model = ViT(embedding_size=768, img_size=32, n_layers=1, n_classes=10)
     if args.loadCheckpoint:
         model.load_state_dict(torch.load(PATH))
         run_testset(model, testloader, device)
